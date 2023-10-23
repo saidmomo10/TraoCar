@@ -38,24 +38,19 @@
                 </div>
         
             @endif
-            <div class="crud">
+            <div class="mt-3">
                 <form method="POST" action="{{route('createCategory')}}">
                     @csrf
-                    <div>
-                        <h5>CATEGORY</h5>
-                    </div>
                     <div class="field"> 
                         <input type="text" name="name">    
                     </div>
                     <div class="btn__form">
-                        <button>Enregistrer</button>
+                        <button class="btn btn-primary mt-3">Enregistrer</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
-    {{ $category }}
 
 

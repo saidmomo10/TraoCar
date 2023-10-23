@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Car;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -22,7 +23,7 @@ class CategoryController extends Controller
 
     public function showcategory($id){
         $category=Category::find($id);
-        $cars = Car::where('category_id', $id)->paginate(10);
+        $cars = Car::where('category_id', $id)->with('category')->paginate(10);
         //dd($cars);
         return view('Categories.showCategoriesView', compact("category","id", "cars" ));
      }
@@ -36,10 +37,10 @@ class CategoryController extends Controller
         if($category){
             return redirect()->back()->with('error', "Category already exist");
         }
-
+        
         //dd($request->name);
         $save = Category::create([
-            'name'=> $request->name
+            'name'=> $request->name,
         ]);
         
         return redirect()->back()->with('message', "Category successfully added");

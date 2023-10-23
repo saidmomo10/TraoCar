@@ -10,14 +10,15 @@ use Illuminate\Support\Facades\Storage;
 class CarController extends Controller
 {
     public function showcarlists(){
-        $cars = Car::orderBy('created_at', 'desc')->with('category')->paginate('2');
+        $cars = Car::orderBy('created_at', 'desc')->with('category')->paginate('3');
         //dd($cars);
         return view('Cars.carsListView', compact('cars'));
     }
 
     public function show($id){
         $cars = Car::find($id);
-        return view('Cars.carDetailsView', compact("id","cars"));    
+        $car = Car::find($id)->with('category')->where('category_id', $cars->category_id)->whereNotIn('id', [$id])->latest()->take(3)->get();
+        return view('Cars.carDetailsView', compact("id","cars", "car"));    
     }
 
     public function addcar(){

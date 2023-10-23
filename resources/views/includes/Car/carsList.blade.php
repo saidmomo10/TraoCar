@@ -1,3 +1,40 @@
+@if (session('message'))
+
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Message success </strong> <br>{{ session('message') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+
+        </button>
+
+    </div>
+
+@endif
+
+@if (session('error'))
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Message success </strong> <br>{{ session('error') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
+    </div>
+
+@endif
+
+@if ($errors->any())
+
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li><br />
+            @endforeach
+        </ul>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+
+@endif
+
+@if (count($cars) !=0)
+
 <div class="row">
     @foreach ($cars as $item)
         <div class="col-md-4 ">
@@ -11,7 +48,7 @@
                     <p class="card-text text-muted">
                         {{ $item->category->name }}
                     </p>
-                    <p>{{ $item->name }}</p>
+                    <p>{{ $item->name }}/Prix : {{ $item->price }}£</p>
 
                     {{-- <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
@@ -27,3 +64,8 @@
     @endforeach
     {{ $cars->links() }}
 </div>
+@else
+    <div class="empty__page">
+        <h3>Aucune voiture disponible</h3>
+    </div>
+@endif

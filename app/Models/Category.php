@@ -11,6 +11,13 @@ class Category extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function rules()
+{
+    return [
+        'mainly_image' => 'required|image',
+    ];
+}
+
     public function cars(){
         return $this->hasMany(Car::class);
     }

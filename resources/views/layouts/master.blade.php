@@ -9,36 +9,33 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="">
         <header>
-            <nav class="navbar navbar-expand-lg bg-primary">
+            <nav class="navbar navbar-expand-lg p-5">
                 <div class="container">
-                    <a class="navbar-brand" href="#">Navbar</a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                    <a class="navbar-brand" href="/">TraoCar</a> 
+                   
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">Accueil</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('addCategory') }}">Add Category</a>
+                                <a class="nav-link" aria-current="page" href="/">Accueil</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('showCarLists') }}">Boutique</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('addCar') }}">Add car</a>
+                                <a class="nav-link" href="{{ route('addCategory') }}">Ajouter une Marque</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('addCar') }}">Ajouter une voiture</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
         </header>
-        <div class="p-5" style="display: flex; align-items: start; justify-content: center">
-            <div class=" container col-md-2">
+        <div class="content p-5">
+            <div class=" container col-md-3">
                 <table class="table">
                     <thead>
                         <tr>
@@ -57,7 +54,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class=" container col-md-10">
+            <div class=" container col-md-9">
                 <main>
                     @yield('content')
                 </main>
