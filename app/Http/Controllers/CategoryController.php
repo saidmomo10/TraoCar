@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
-    // public function categoryList(){
-    //     $category = Category::all();
-    //     dd($category);
-    //     return view('Categories.addCategoriesView', compact('category'));
-    // }
 
     public function addcategory(){
         $category = Category::all();

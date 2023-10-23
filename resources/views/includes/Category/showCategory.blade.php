@@ -4,7 +4,6 @@
     <div class="row">
         @foreach ($cars as $item)
             <div class="col-md-4 ">
-                <!-- pour dire utilise 4 colonnes  contraire sm pour dire pour les écrans small-->
                 <div class="mb-4">
                     <a href="{{ route('indexWithID', ['id' => $item['id']]) }}">
     

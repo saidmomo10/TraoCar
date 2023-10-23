@@ -1,45 +1,3 @@
-{{-- <div class="container mt-5">
-    <div class="mb-3" >
-        <div class="row g-0">
-            <div class="col-md-4">
-                <img @if (!empty($item['mainly_image'])) src="{{ $item['mainly_image'] }}" @else src="****" @endif
-                alt="image cap" class="card-img-top" height="225" />
-            </div>
-            <div style="margin-left: 30px" class="col-md-4 ml-3">
-                <div style="display: flex; flex-direction:column; gap:35px" class="">
-                    <div style="display: flex; gap:15px; justify-content:flex-start;">
-                        <h5 class="card-title">{{ $cars['name'] }}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div style="display: flex; gap:15px; justify-content:flex-start;">
-            <h5 class="card-title">Description :</h5>
-            <p>{{ $cars['details'] }}</p>
-        </div>
-    </div>
-</div> --}}
-
-<script>
-    const img = document.querySelector(".img");
-
-// Fonction pour faire le zoom
-function zoom(event) {
-  // Récupérer la position du curseur
-  const x = event.clientX;
-  const y = event.clientY;
-
-  // Calculer le facteur de zoom
-  const zoomFactor = 1 + (x / compartiment.width) * 0.2;
-
-  // Appliquer le zoom
-  compartiment.style.transform = `scale(${zoomFactor}, ${zoomFactor})`;
-}
-
-// Écouteur d'événement
-compartiment.addEventListener("mousemove", zoom);
-
-</script>
 
 <div>
     <div style="display: flex; align-items:start; gap:30px">
@@ -111,7 +69,6 @@ compartiment.addEventListener("mousemove", zoom);
     <div class="row">
         @foreach ($car as $item)
             <div class="col-md-4 ">
-                <!-- pour dire utilise 4 colonnes  contraire sm pour dire pour les écrans small-->
                 <div class="mb-4">
                     <a href="{{ route('indexWithID', ['id' => $item['id']]) }}">
     
@@ -122,14 +79,6 @@ compartiment.addEventListener("mousemove", zoom);
                             {{ $item->category->name }}
                         </p>
                         <p>{{ $item->name }}/Prix : {{ $item->price }}£</p>
-    
-                        {{-- <div class="d-flex justify-content-between align-items-center">
-                            <div class="btn-group">
-                                <a type="button" class="btn btn-sm btn-outline-secondary" href="{{ route('indexWithID', ['id' => $item['id']]) }}"> voir </a>
-                                <button type="button" class="btn btn-sm btn-outline-secondary">Modifier</button>
-                            </div>
-                            <small class="text-muted"> 9 mins</small>
-                        </div> --}}
                     </div>
     
                 </div>
